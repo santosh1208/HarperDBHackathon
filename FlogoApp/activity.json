@@ -1,0 +1,45 @@
+{
+  "name": "tibco-rest-Akash",
+  "type": "flogo:activity",
+  "ref": "github.com/Ganitagya/flogo-contrib/activity/rest",
+  "version": "0.0.1",
+  "title": "Invoke REST Service Akash",
+  "description": "Simple REST Activity with Basic Auth",
+  "homepage": "https://github.com/Ganitagya/flogo-contrib/edit/master/activity/rest",
+  "inputs":[
+    {
+      "name": "method",
+      "type": "string",
+      "required": true,
+      "allowed" : ["GET", "POST", "PUT", "PATCH", "DELETE"]
+    },
+    {
+      "name": "uri",
+      "type": "string",
+      "required": true
+    },
+    {
+      "name": "Autorization",
+      "type": "string",
+      "required": true
+    }
+    {
+      "name": "pathParams",
+      "type": "params"
+    },
+    {
+      "name": "queryParams",
+      "type": "params"
+    },
+    {
+      "name": "content",
+      "type": "any"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "result",
+      "type": "any"
+    }
+  ]
+}

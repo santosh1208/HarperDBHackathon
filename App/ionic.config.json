@@ -1,0 +1,8 @@
+{
+  "name": "HarperDB",
+  "app_id": "a41cdcf3",
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  }
+}

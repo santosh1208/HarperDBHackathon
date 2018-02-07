@@ -1,0 +1,203 @@
+{
+  "name": "Telemetry-Insurane",
+  "type": "flogo:app",
+  "version": "0.0.1",
+  "description": "",
+  "triggers": [
+    {
+      "name": "Receive MQTT Message",
+      "ref": "github.com/anshulsharmas/flogo-contrib/trigger/mqtt",
+      "description": "Simple MQTT Trigger with TLS suppport",
+      "settings": {
+        "broker": "ssl://a2prv5pwlijsdm.iot.us-east-1.amazonaws.com:8883",
+        "id": "flogo",
+        "user": "abc",
+        "password": "abc",
+        "store": "abc",
+        "topic": "vehicle",
+        "qos": "0",
+        "cleansess": "true"
+      },
+      "id": "receive_mqtt_message",
+      "handlers": [
+        {
+          "settings": {
+            "topic": "vehicle"
+          },
+          "actionId": "test"
+        }
+      ]
+    }
+  ],
+  "actions": [
+    {
+      "name": "test",
+      "data": {
+        "flow": {
+          "type": 1,
+          "attributes": [],
+          "rootTask": {
+            "id": 1,
+            "type": 1,
+            "tasks": [
+              {
+                "id": 2,
+                "name": "Message on MQTT",
+                "description": "Simple Log Activity",
+                "type": 1,
+                "activityType": "github-com-tibco-software-flogo-contrib-activity-log",
+                "activityRef": "github.com/TIBCOSoftware/flogo-contrib/activity/log",
+                "attributes": [
+                  {
+                    "name": "message",
+                    "value": "Message received on topic",
+                    "required": false,
+                    "type": "string"
+                  },
+                  {
+                    "name": "flowInfo",
+                    "value": "false",
+                    "required": false,
+                    "type": "boolean"
+                  },
+                  {
+                    "name": "addToFlow",
+                    "value": "false",
+                    "required": false,
+                    "type": "boolean"
+                  }
+                ]
+              },
+              {
+                "id": 3,
+                "name": "Auth for Post",
+                "description": "Simple REST Activity with Basic Auth",
+                "type": 1,
+                "activityType": "github-com-ganitagya-custom-flogo-activity-activities-postauth",
+                "activityRef": "github.com/Ganitagya/Custom_flogo_activity/activities/postauth",
+                "attributes": [
+                  {
+                    "name": "method",
+                    "value": "POST",
+                    "required": true,
+                    "type": "string"
+                  },
+                  {
+                    "name": "uri",
+                    "value": "http://localhost:9925",
+                    "required": true,
+                    "type": "string"
+                  },
+                  {
+                    "name": "pathParams",
+                    "value": null,
+                    "required": false,
+                    "type": "params"
+                  },
+                  {
+                    "name": "queryParams",
+                    "value": null,
+                    "required": false,
+                    "type": "params"
+                  },
+                  {
+                    "name": "content",
+                    "value": null,
+                    "required": false,
+                    "type": "any"
+                  }
+                ],
+                "inputMappings": [
+                  {
+                    "type": 1,
+                    "value": "{T.message}",
+                    "mapTo": "content"
+                  }
+                ]
+              },
+              {
+                "id": 4,
+                "name": "Harper Updated",
+                "description": "Simple Log Activity",
+                "type": 1,
+                "activityType": "github-com-tibco-software-flogo-contrib-activity-log",
+                "activityRef": "github.com/TIBCOSoftware/flogo-contrib/activity/log",
+                "attributes": [
+                  {
+                    "name": "message",
+                    "value": "Database updated",
+                    "required": false,
+                    "type": "string"
+                  },
+                  {
+                    "name": "flowInfo",
+                    "value": "false",
+                    "required": false,
+                    "type": "boolean"
+                  },
+                  {
+                    "name": "addToFlow",
+                    "value": "false",
+                    "required": false,
+                    "type": "boolean"
+                  }
+                ]
+              },
+              {
+                "id": 5,
+                "name": "Flow completed",
+                "description": "Simple Log Activity",
+                "type": 1,
+                "activityType": "github-com-tibco-software-flogo-contrib-activity-log",
+                "activityRef": "github.com/TIBCOSoftware/flogo-contrib/activity/log",
+                "attributes": [
+                  {
+                    "name": "message",
+                    "value": "Flogo Flow completed",
+                    "required": false,
+                    "type": "string"
+                  },
+                  {
+                    "name": "flowInfo",
+                    "value": "false",
+                    "required": false,
+                    "type": "boolean"
+                  },
+                  {
+                    "name": "addToFlow",
+                    "value": "false",
+                    "required": false,
+                    "type": "boolean"
+                  }
+                ]
+              }
+            ],
+            "links": [
+              {
+                "id": 1,
+                "from": 2,
+                "to": 3,
+                "type": 0
+              },
+              {
+                "id": 2,
+                "from": 3,
+                "to": 4,
+                "type": 0
+              },
+              {
+                "id": 3,
+                "from": 4,
+                "to": 5,
+                "type": 0
+              }
+            ],
+            "attributes": []
+          }
+        }
+      },
+      "id": "test",
+      "ref": "github.com/TIBCOSoftware/flogo-contrib/action/flow"
+    }
+  ]
+}

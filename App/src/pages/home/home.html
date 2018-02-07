@@ -1,0 +1,56 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Home</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  
+
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+      </ion-col>
+     
+     
+     
+      <ion-col>
+        
+          <h2>Tere Car k bare mein</h2>
+          <p>
+            This weeks usage
+          </p>
+          
+        <ion-card>
+          
+          <ion-card-header>
+            
+            Features
+          </ion-card-header>
+
+          <ion-list>
+
+              <button ion-item (click)="weekPage();">
+                
+                  <ion-icon name="md-arrow-dropright-circle" item-start ></ion-icon>
+                  Last weeks stat
+                </button>
+
+                <button ion-item (click)="daily();">
+                    <ion-icon name="md-arrow-dropright-circle" item-start></ion-icon>
+                    Today's Stat
+                  </button>
+              
+                  <button ion-item>
+                    <ion-icon name="md-arrow-dropright-circle" item-start></ion-icon>
+                    Estimated Premium
+                  </button>
+              
+          </ion-list>
+        </ion-card>
+      </ion-col>
+      <ion-col>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
