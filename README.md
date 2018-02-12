@@ -1,6 +1,9 @@
 Car Health /Performance Monitoring 
 
-Car health is important nowadays . With the evolution of IoT car can be fitted with sensors to gather different information about Car’s health and performance. Our solution will gather information from Car’s sensors and store it in HarperDB (On edge itself) . The data stored can be used to analyse and provide user information  via mobile app.
+With the invent of tremendous analytical and statistical algorithms, there has been a boom of solutions providing humongous sources of information which can be leveraged in multiple ways to improve customer satisfaction. Consumers have become smarter these days and they measure their experience on various analysis made by modern day computing resources.
+
+The shadows of this trend has impacted hugley on the automobile industry. With the evolution of IoT, cars can be fitted with sensors to gather various information related to Car’s health and performance. We propose a solution where, we collect this information and store it in HarperDB (On edge itself) . The data stored can be used to analyse and provide user information via mobile app.
+
 
 Problem 
 
