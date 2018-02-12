@@ -18,11 +18,16 @@ With the power of HarperDB data can be stored on edge devices itself and can be 
 
 Technology used 
 
-Flogo : To build IoT integration flow.  Flogo (http://www.flogo.io/ ) is an open source tool built by TIBCO software used to create lightweight IoT integration flows. All the logic can be visually coded with drag and drop facility.  Our solution ingest data from MQTT and inserts in to HarperDB over REST . 
+Flogo : To build IoT integration flow.  Flogo (http://www.flogo.io/ ) is an open source tool built by TIBCO software used to create lightweight IoT integration flows. All the logic can be visually coded with drag and drop facility.  Once the flow is ready we actually build the executable that will run on edge device like pi. It will listen on MQTT topic for the data coming from sensors. MQTT trigger in the flow will ingest data from MQTT and start the flow. This flow will insert data coming from sensors into HarperDB. 
            
             
 HarperDB : To store data coming from sensors 
+
 Raspberry pi : To run IoT flow and interfacing with sensors . The flow created with flogo can be built and run on Raspberry pi . Once the flow is running on device it can accept data coming over MQTT .
+
+MQTT : MQTT protocol is used to ingest data from multiple IoT sensors.
+
+Ionic : Ionic application framework is used to build cross platform mobile application. Using in-vehicle connectvity the data from harperDB running on Pi can be shown to user via mobile app. 
 
 Application 
 
@@ -42,12 +47,17 @@ Updated Prototype
 
 https://projects.invisionapp.com/share/57FSS04J8AH#/screens/278741558
 
-Future scope 
+
+Future scope / Applications
 
 
-This application can be useful to find out Car heath and performance . This can be extended to provide predictive maintenance updates about car to user 
+1. Useful to find out Car heath and performance . 
 
-Telematics insurance sometimes called black box insurance, pay-as-you-drive or pay-how-you-drive insurance - is a rapidly growing area of the industry that's revolutionising the way we think about car insurance. App can be extended to predict Insurance premiums to user.
+2. Predictive maintenance updates about car to user.
 
-HarperDB can be used with different telematics device providers for storing data on edge.
+3. Provide driver assistance.
+
+4. Telematics insurance sometimes called black box insurance, pay-as-you-drive or pay-how-you-drive insurance - is a rapidly growing area of the industry that's revolutionising the way we think about car insurance. App can be extended to predict Insurance premiums to user. HarperDB can be used with different telematics device providers for storing data on edge.
+
+5. eCalls : In the event of a serious accident, eCall automatically emergency number and sends the appropriate authorities to the scene.
 
